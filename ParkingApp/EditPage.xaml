@@ -1,0 +1,50 @@
+﻿<Page x:Class="ViniParkingApp.EditPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="EditPage" Background="White">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Zarządzanie i edycja pozycji" FontSize="22" FontWeight="Bold" Margin="0,0,0,20"/>
+
+        <TabControl Grid.Row="1">
+
+            <TabItem Header="Aktywne pozycje (Wyjazdy)" FontSize="16">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <DataGrid Grid.Row="0" Name="GridEditActive" AutoGenerateColumns="True" IsReadOnly="True" 
+                              SelectionMode="Single" AlternatingRowBackground="#F2F6F8"/>
+
+                    <Button Grid.Row="1" Content="Odnotuj wyjazd wybranego pojazdu" Name="BtnCheckout" 
+                            Click="BtnCheckout_Click" Margin="0,15,0,0" Height="45" Background="#ff4d61" 
+                            Foreground="White" FontSize="16" FontWeight="Bold" Cursor="Hand"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Zarchiwizowane pozycje (Usuwanie)" FontSize="16">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <DataGrid Grid.Row="0" Name="GridEditArchive" AutoGenerateColumns="True" IsReadOnly="True" 
+                              SelectionMode="Single" AlternatingRowBackground="#F2F6F8"/>
+
+                    <Button Grid.Row="1" Content="Usuń wpis z historii" Name="BtnDelete" 
+                            Click="BtnDelete_Click" Margin="0,15,0,0" Height="45" Background="#ff4d61" 
+                            Foreground="White" FontSize="16" FontWeight="Bold" Cursor="Hand"/>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</Page>
